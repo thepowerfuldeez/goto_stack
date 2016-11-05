@@ -1,0 +1,59 @@
+<!doctype html>
+<html>
+    <head>
+
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+        <!-- Optional theme -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
+        <!-- Latest compiled and minified JavaScript -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+
+        <meta charset="utf-8" />
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+        <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}" type="image/x-icon">
+        <link rel="logo" href="{{ url_for('static', filename='logo.png') }}" type="image/png">
+        <title>{% block title %}{% endblock %}</title>
+    </head>
+  <body>
+    <div id="content">
+        <br>
+        <h1 align="center">Предсказание времени ответа на вопрос</h1>
+        <h3 align="center"><a href="http://stackoverflow.com/">StackOverflow</a></h3>
+        <br>
+        <p align="center">Введите ссылку на ваш вопрос</p>
+        <form action="/" method="post">
+            <div style align="center"="margin-left: 20%; margin-right: 20%" >
+                <input name="film" type="text" placeholder="Ссылка" />
+                <input class="button" type="submit" value="Поиск" />
+            </div>
+        </form>
+        <br>
+	<p align="center">{{ result }}</p>
+        {% block content %}{% endblock %}
+        <script src="{{ url_for('static', filename='jquery.min.js') }}"></script>
+        <script src="{{ url_for('static', filename='what-input.min.js') }}"></script>
+        <script src="{{ url_for('static', filename='foundation.min.js') }}"></script>
+        <script>
+            $(document).foundation();
+        </script>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+    </div>
+    <div id="footer">
+      {% block footer %}
+        <table align="center"></table>
+        <td>
+            <p>&copy; Copyright 2016 by <a href="https://new.vk.com/thepowerfuldeez">ThePowerfulDeeZ</a>.</p>
+            <p>Принимаются любые предложения и замечания.</p>
+        </td>
+      {% endblock %}
+    </div>
+  </body>
+</html>
